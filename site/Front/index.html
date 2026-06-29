@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main>
+
+    <!-- FORMULAIRE DE CONNEXION -->
+    <div id="login-box">
+        <h1>Connexion</h1>
+        <form id="login-form" action="#" method="POST">
+            <label>Identifiant</label>
+            <input type="text" id="login-username" required>
+
+            <label>Mot de passe</label>
+            <input type="password" id="login-password" required>
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <p>Pas de compte ?
+            <a href="#" id="show-register">Créer un compte</a>
+        </p>
+
+        <p id="login-error" class="error"></p>
+    </div>
+
+    <!-- FORMULAIRE D’INSCRIPTION -->
+    <div id="register-box" style="display:none;">
+        <h1>Inscription</h1>
+        <form id="register-form" action="#" method="POST">
+            <label>Identifiant</label>
+            <input type="text" id="register-username" required>
+
+            <label>Email</label>
+            <input type="email" id="register-email" required>
+
+            <label>Mot de passe</label>
+            <input type="password" id="register-password" required>
+
+            <div id="password-strength"></div>
+
+            <label>Confirmer le mot de passe</label>
+            <input type="password" id="register-password-confirm" required>
+
+            <p id="password-match-error" class="error"></p>
+
+            <label>Anti-Spam : Combien font <span id="captcha-question"></span> ? </label>
+            <input type="text" id="captcha-answer" required>
+            <p id="captcha-error" class="error"></p>
+
+
+            <button type="submit">Créer le compte</button>
+        </form>
+
+        <p>Déjà un compte ?
+            <a href="#" id="show-login">Se connecter</a>
+        </p>
+
+        <p id="register-error" class="error"></p>
+        <p id="register-success" class="success"></p>
+    </div>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

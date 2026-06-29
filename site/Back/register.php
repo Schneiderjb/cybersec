@@ -41,6 +41,7 @@ if (($data["captcha"] ?? "") != $_SESSION["captcha_answer"]) {
     exit;
 }
 
+// Vérification de username, mail et password
 $username = htmlspecialchars($data["username"] ?? "", ENT_QUOTES, 'UTF-8');
 $email = htmlspecialchars($data["email"] ?? "", ENT_QUOTES, 'UTF-8');
 $password = $data["password"] ?? "";

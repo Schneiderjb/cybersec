@@ -40,8 +40,6 @@ if (($data["captcha"] ?? "") != $_SESSION["captcha_answer"]) {
     exit;
 }
 
-$data = json_decode(file_get_contents("php://input"), true);
-
 $username = htmlspecialchars($data["username"] ?? "", ENT_QUOTES, 'UTF-8');
 $email = htmlspecialchars($data["email"] ?? "", ENT_QUOTES, 'UTF-8');
 $password = $data["password"] ?? "";

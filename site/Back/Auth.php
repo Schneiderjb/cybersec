@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 $data = json_decode(file_get_contents("php://input"), true);
 
+// Vérification de username et password
 $username = $data["username"] ?? "";
 $password = $data["password"] ?? "";
 
@@ -40,10 +41,12 @@ if ($username === "" || $password === "") {
 
 $pdo = getDBConnection();
 
+// Vérifier si l'utilisateur existe déjà
 $stmt = $pdo->prepare("SELECT id, password_hash FROM users WHERE login = ?");
 $stmt->execute([$username]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// Vérifier si l'utilisateur a le bon password
 if (!$user || !password_verify($password, $user["password_hash"])) {
     http_response_code(401);
     echo json_encode(["error" => "Identifiants invalides"]);

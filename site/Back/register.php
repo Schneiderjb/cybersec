@@ -34,6 +34,7 @@ if (!isset($_SESSION["captcha_answer"])) {
     exit;
 }
 
+// Vérification du Captcha
 if (($data["captcha"] ?? "") != $_SESSION["captcha_answer"]) {
     http_response_code(400);
     echo json_encode(["error" => "Captcha incorrect"]);
